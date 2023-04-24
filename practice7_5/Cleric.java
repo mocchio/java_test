@@ -11,4 +11,14 @@ public class Cleric {
     this.Hp = this.maxHp;
     System.out.println("HPが最大まで回復した！");
   }
+
+  public void pray(int sec) {
+    System.out.println(this.name + "は、" + sec + "秒天に祈った！");
+    int random_sec = new java.util.Random().nextInt(3);
+    int recovery = sec + random_sec;
+    int recovery_actual = Math.min(this.maxMp - this.MP, recovery);
+    this.MP += recovery_actual;
+    System.out.println("MPが" + recovery_actual + "回復した！");
+    return recovery_actual
+  }
 }
